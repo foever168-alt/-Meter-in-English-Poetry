@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* Morandi Palette Variables (Warm Literary Edition) */
+    --morandi-bg: #221c1f;          /* 深暖莫蘭迪灰梅底色 */
+    --morandi-bg-subtle: #2b2327;   /* 莫蘭迪梅灰次級底色 */
+    --morandi-card: #2e262b;        /* 莫蘭迪溫柔灰粉卡片底 */
+    --morandi-card-inner: #251e22;  /* 卡片內嵌槽底色 */
+    --morandi-pink: #df9b9b;        /* 莫蘭迪乾燥玫瑰粉 */
+    --morandi-pink-deep: #b86b77;   /* 典雅深玫瑰粉 */
+    --morandi-pink-soft: #f4d3d8;   /* 柔和櫻粉 highlight */
+    --morandi-sage: #8fae9b;        /* 莫蘭迪鼠尾草綠 */
+    --morandi-sage-deep: #5e826e;   /* 沉靜森青綠 */
+    --morandi-cream: #f7ede2;       /* 溫潤奶油紙色 */
+    --morandi-cream-muted: #d8c7b8; /* 典雅古紙羊皮灰 */
+    --morandi-border: #4d3d44;      /* 莫蘭迪溫暖邊框 */
+  }
+
+  html, body {
+    background-color: #221c1f;
+    color: #f7ede2;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+}
+
+/* Enforce minimum 22px (22級字) everywhere except tabs/bottom controls */
+body, button, input, select, textarea, p, span, div, li, h3, h4, h5, h6, kbd, a, label {
+  font-size: max(22px, 1em);
+}
+
+/* Enforce title size to minimum 32px (32級字) */
+h1, h2 {
+  font-size: max(32px, 1.45em);
+  line-height: 1.25;
+}
+
+/* 分頁標籤與導覽標籤字級保持在 14 級字 (14px) */
+.tab-text, [data-tab="true"], .nav-tab-item {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* 網頁下方的大綱索引、輪播、上一頁、下一頁控制字級調整為 12 級字 (12px) */
+.bottom-ctrl, [data-bottom-ctrl="true"] {
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+}
+
+/* Overwrite smaller Tailwind font size utility classes so minimum default text is 22px (22級字),
+   while allowing tab elements (14px) and bottom controller elements (12px) */
+:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]) > .text-xs,
+:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]) > .text-sm,
+.text-xs:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-sm:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-base:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-lg:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-xl:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[9px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[10px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[11px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[12px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[13px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[15px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[16px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[17px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[18px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]),
+.text-\[20px\]:not(.tab-text):not([data-tab="true"]):not(.nav-tab-item):not(.bottom-ctrl):not([data-bottom-ctrl="true"]) {
+  font-size: max(22px, 1em) !important;
+  line-height: 1.5 !important;
+}
+
+.font-poetry {
+  font-family: var(--font-serif);
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+/* Custom keyframes for rhythmic beats with Morandi warmth */
+@keyframes rhythm-glow {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(223, 155, 155, 0.25);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(223, 155, 155, 0.6), 0 0 45px rgba(143, 174, 155, 0.45);
+    transform: scale(1.04);
+  }
+}
+
+.animate-rhythm-glow {
+  animation: rhythm-glow 0.8s ease-in-out infinite;
+}
+
+/* Morandi custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #221c1f;
+}
+::-webkit-scrollbar-thumb {
+  background: #4d3d44;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b86b77;
+}

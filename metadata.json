@@ -1,0 +1,6 @@
+{
+  "name": "莎士比亞十四行詩節奏教學簡報",
+  "description": "莎士比亞 Sonnet 18 抑揚格五音步互動教學簡報，包含音節切分、音部標記與節拍 Rap 互動朗讀。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
